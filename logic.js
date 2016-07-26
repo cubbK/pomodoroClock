@@ -45,10 +45,10 @@ $( document ).ready(function() {
         if(textInside =="START"){
           $("#start").html("<h2><b>STOP</b></h2>");
             interval =  window.setInterval(function(){
-                if (sesTime >0){
+                if (sesTime >=0){
                   sesTimer();
                 }else {
-                  //func de break;
+                  breakTimer();
                 }
 
             }, 1000);
@@ -70,6 +70,16 @@ $( document ).ready(function() {
         }else{
           secunde = 60;
           sesTime--;
+        }
+    }
+    function breakTimer() {
+        $("#text-incurajare").html("<b>REST!</b>");
+        showTime(breaktime);
+        if(secunde!=0){
+          secunde--;
+        }else{
+          secunde = 60;
+          breaktime--;
         }
     }
     function showTime(time) {
