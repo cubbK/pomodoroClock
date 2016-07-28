@@ -3,14 +3,13 @@ $( document ).ready(function() {
     var session = 25;
     var brk = 5;
     var sesTime = session;
-    var breakTime = brk;
+    var breakTime = brk -1;
     var secunde = 0;
     $("#session").text(session);
     $("#break").text(brk);
 
     $("#ses-minus").click(function () {
-        var attr = $("#ses-minus").attr('disabled')
-        console.log(attr);
+
         if (session>1){
           session --;
           $("#session").text(session);
@@ -74,12 +73,12 @@ $( document ).ready(function() {
     }
     function breakTimer() {
         $("#text-incurajare").html("<b>REST!</b>");
-        showTime(breaktime);
+        showTime(breakTime);
         if(secunde!=0){
           secunde--;
         }else{
           secunde = 60;
-          breaktime--;
+          breakTime--;
         }
     }
     function showTime(time) {
